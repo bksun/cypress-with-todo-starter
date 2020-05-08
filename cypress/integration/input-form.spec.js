@@ -4,7 +4,7 @@ describe('Input form', () => {
   const typedValue = 'my first todo';
 
   beforeEach(() => {
-    cy.visit('/')
+    cy.seedAndVisit([])
   })
 
   it('focuses input on load', () => {
@@ -24,7 +24,7 @@ describe('Input form', () => {
     beforeEach(() => {
       cy.server()
     })
-    
+
     it('adds a new todo on submit', ()=> {
       cy.route('POST', '/api/todos', {
         name: typedValue,
